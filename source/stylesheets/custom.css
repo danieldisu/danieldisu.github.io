@@ -1,0 +1,13 @@
+.proyecto img{
+   max-width: 45% !important;
+   padding:0px;
+   margin-top:25px;
+   border:2px solid black;
+}
+.proyecto a{
+   display: inline !important;
+}
+#viajea img{
+   display: inline-block !important;
+   max-width: 30% !important;
+}
