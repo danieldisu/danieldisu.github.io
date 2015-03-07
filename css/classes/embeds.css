@@ -1,0 +1,41 @@
+/* Hexo: Youtube, other video container */
+/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+.video-container {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden; }
+
+/* line 10, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0; }
+
+/* line 18, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+pre {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  background: #f8f8f8;
+  width: 1000px;
+  margin-left: -100px;
+  border: 1px solid black;
+  padding-left: 50px; }
+  /* line 27, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+  pre code {
+    padding: 10px; }
+
+/* Github */
+/* line 33, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+.gist table {
+  margin: 0;
+  font-size: 1.4rem; }
+
+/* line 37, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+.gist .line-number {
+  min-width: 25px;
+  font-size: 1.1rem; }
