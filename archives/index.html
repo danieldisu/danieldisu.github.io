@@ -41,6 +41,172 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2015-03-08T12:00:21.000Z" itemprop="datePublished">
+          2015-03-08
+      </time>
+      <author> by danieldisu</author>
+    
+</span>
+
+      <h1 class="post-title"><a href="/2015/03/08/Android-Priority-Jobqueue-Otto/">Interesting Android Libraries: Android Priority Jobqueue & Otto</a></h1>
+    </header>
+    <section class="post-content">
+      <p>
+        <p>If you’ve ever worked on Android, you’ve must encountered the <a href="http://www.androiddesignpatterns.com/2012/06/app-force-close-honeycomb-ics.html" target="_blank" rel="external">Network on Main thread exception</a>, this exception introduced in Android 3.0 forces the developer to delegate this responsibility to a background thread.</p>
+<p>Android provides you from several abstractions to manage this, one of them is <a href="http://developer.android.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">Async Task</a>, which is often not enough, the biggest turndown is when you need to inform the activity that the task has been completed, you need often to hold a reference of the activity, and make the activity implement some interface callback.</p>
+<p>Most of these problems can be resolved using Retrofit and other http abstractions, using Futures, Callbacks or Observables, but if you want something more complex, like chain some request or just cancel something when one of x request failed, you need a higher abstraction.</p>
+<h2 id="Android_Priority_Jobqueue_to_the_recue">Android Priority Jobqueue to the recue</h2><p><a href="https://github.com/path/android-priority-jobqueue" target="_blank" rel="external">Android Priority Jobqueue</a> created by the of Path, helps you to archive that kind of things, with a interface similar to the one you can find on the AsyncTask it has a nearly zero learning curve.</p>
+<p>All you need to do is to create a new class that extends from the class Job:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginJob</span> <span class="keyword">extends</span> <span class="title">Job</span> </span>{
+
+    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"LoginJob"</span>;
+
+    <span class="function"><span class="keyword">public</span> <span class="title">LoginJob</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>(<span class="keyword">new</span> Params(<span class="number">5</span>).requireNetwork());
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAdded</span><span class="params">()</span> </span>{
+        Log.d(TAG, <span class="string">"Login Job Added"</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRun</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>{
+        Log.d(TAG, <span class="string">"Login Job"</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">()</span> </span>{
+        Log.d(TAG, <span class="string">"Login Job Cancelled"</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">shouldReRunOnThrowable</span><span class="params">(Throwable throwable)</span> </span>{
+        Log.e(TAG, <span class="string">"Login Job Failed"</span>, throwable);
+        <span class="keyword">return</span> <span class="keyword">false</span>;
+    }
+}
+</code></pre><p>With this layout you have some niceties without any work, all the exceptions that may be thrown in the <code>onRun</code> method will be captured and can be managed on the <code>shouldRerunOnThrowable</code> if you return true in that method the job will automatically run again from the start!</p>
+<p>Is important to note that the <code>onRun</code> method will be called in a background thread so you can block this thread waiting for a response and it will not interfere with the UI.</p>
+<p>Once you have implemented all your logic on the <code>onRun</code> method, the only thing left to do is to notify the UI that the work has been done, for that task I always use an event bus.</p>
+<p>An event bus helps you decouple your application  so that the only thing that your job has to do is to send the event that the job is terminated, and it’s the activity responsibility to subscribe to that event to know when it’s finished and update the UI. There are several event buses that let you archive that, but my favourite is Otto.</p>
+<h2 id="Introducing_Otto">Introducing Otto</h2><p><a href="http://square.github.io/otto/" target="_blank" rel="external">Otto</a> it’s another library from the guys at Square (thanks again!), it’s based on the Guava event bus and adapted to Android, the main difference is that all events receivers will be called in the Main Thread ( often called UI thread ), this will help you to update the UI in the event receivers without hassle.</p>
+<p>All you have to do is to create a <a href="https://github.com/square/otto/blob/master/otto/src/main/java/com/squareup/otto/Bus.java" target="_blank" rel="external">Bus</a> and share the instance within your application, because of Android limitations, you must register/unregister each activity/class, Otto won’t lookup in subclasses or superclasses for performance reasons.</p>
+<p><strong>Tip</strong>: I recommend to subscribe and unsubscribe your activities in the <code>onResume</code> and <code>onPause</code> methods.</p>
+<p>Once you have your activity subscribed, the only thing you have to do is to create an Event class for that type of event, one example could be:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginFinishedEvent</span> </span>{
+    <span class="keyword">private</span> <span class="keyword">boolean</span> withError = <span class="keyword">false</span>;
+    <span class="keyword">private</span> User user;
+    <span class="keyword">private</span> String message;
+
+    <span class="function"><span class="keyword">public</span> <span class="title">LoginFinishedEvent</span><span class="params">(<span class="keyword">boolean</span> withError, String message)</span> </span>{
+        <span class="keyword">this</span>.withError = withError;
+        <span class="keyword">this</span>.message = message;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="title">LoginFinishedEvent</span><span class="params">(<span class="keyword">boolean</span> withError, User user)</span> </span>{
+        <span class="keyword">this</span>.withError = withError;
+        <span class="keyword">this</span>.user = user;
+    }
+
+    <span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> user;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isWithError</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> withError;
+    }
+
+    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> message;
+    }
+}
+</code></pre><p>The good thing of Otto ,although verbose, is that it let’s you work with events in a type safe manner, once your app starts to have 10 - 20 different events it will be very helpful.</p>
+<p>Once you have created the event, you have to <code>post</code> the event to the bus in the job to notify the main thread.</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginJob</span> <span class="keyword">extends</span> <span class="title">Job</span> </span>{
+
+    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"LoginJob"</span>;
+
+    <span class="comment">//dependencies</span>
+    ...
+
+    <span class="function"><span class="keyword">public</span> <span class="title">LoginJob</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>(<span class="keyword">new</span> Params(<span class="number">5</span>).requireNetwork());
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAdded</span><span class="params">()</span> </span>{
+        Log.d(TAG, <span class="string">"Login Job Added"</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRun</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>{
+        Log.d(TAG, <span class="string">"Login Job"</span>)
+        LoginResponse loginResponse = retrofitClient.userAuth(user);
+        UserSettingsResponse userSettingsResponse = retrofitClient.getUserSettingsResponse(user);
+        doSomethingHeavyWithThoseSettings(userSettingsResponse)
+
+     bus.post(<span class="keyword">new</span> LoginFinishedEvent(<span class="keyword">false</span>, user));
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancel</span><span class="params">()</span> </span>{
+        Log.d(TAG, <span class="string">"Login Job Cancelled"</span>);
+        bus.post(<span class="keyword">new</span> LoginFinishedEvent(<span class="keyword">false</span>, <span class="string">"job Cancelled"</span>));
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">shouldReRunOnThrowable</span><span class="params">(Throwable throwable)</span> </span>{
+        Log.e(TAG, <span class="string">"Login Job Failed"</span>, throwable);
+        bus.post(<span class="keyword">new</span> LoginFinishedEvent(throwable, <span class="string">"loginJobFailed"</span>));
+        <span class="keyword">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="function"><span class="keyword">private</span> <span class="title">doSomethingHeavyWithThoseSettings</span><span class="params">(UserSettingsResponse userSettingsResponse)</span></span>{
+        ...
+    }
+}
+</code></pre><p>And then in the respective activity:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span></span>{
+
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"LoginActivity"</span>;
+    <span class="comment">// .. obtain dependencies</span>
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.onResume();
+        bus.register(<span class="keyword">this</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.onPause();
+        bus.unregister(<span class="keyword">this</span>);
+    }
+
+    <span class="annotation">@Subscribe</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoginFinish</span><span class="params">(LoginFinishedEvent event)</span> </span>{
+        <span class="comment">// doSomething with the event...</span>
+    }
+}
+</code></pre><p>This way you have a nice and neat way to do complex logic mixed with some network calls and easily update the UI without introducing much extra complexity.</p>
+
+      </p>
+
+    </section>
+  </article>
+  </div>
+  
+    <div class="post-container odd">
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2014-06-22T22:00:00.000Z" itemprop="datePublished">
           2014-06-23
       </time>
