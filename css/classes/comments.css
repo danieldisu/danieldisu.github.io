@@ -1,9 +1,0 @@
-/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/comments.scss */
-.comments-area {
-  width: 80%;
-  max-width: 700px;
-  margin: 4rem auto; }
-
-/* line 6, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/comments.scss */
-#comment h1 a {
-  text-decoration: none; }

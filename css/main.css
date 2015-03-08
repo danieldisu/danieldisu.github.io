@@ -1,68 +1,64 @@
 @import url(normalize.css);
-/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 html {
   height: 100%;
   max-height: 100%;
-  font-size: 62.5%;
-  overflow-x: hidden; }
+  font-size: 62.5%; }
 
-/* line 8, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 7, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 body {
+  clip: auto;
   height: 100%;
-  max-height: 100%;
-  font-family: 'Noto Serif', serif;
-  font-size: 2rem;
-  line-height: 1.6em;
-  color: #3A4145; }
+  max-height: 100%; }
 
-/* line 16, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 12, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 ::-moz-selection {
   color: #222;
-  background: #D6EDFF;
+  background: #d6edff;
   text-shadow: none; }
 
-/* line 21, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 17, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 ::selection {
   color: #222;
-  background: #D6EDFF;
+  background: #d6edff;
   text-shadow: none; }
 
-/* line 26, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 27, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
   font-family: 'Open Sans', sans-serif; }
 
-/* line 32, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 40, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 h1 {
   font-size: 5rem;
   line-height: 1.2em;
   letter-spacing: -2px;
   text-indent: -3px; }
 
-/* line 39, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 46, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 a {
   color: #4a4a4a;
   transition: color ease 0.3s; }
 
-/* line 43, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 50, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 a:hover {
-  color: #57A3E8; }
+  color: #57a3e8; }
 
-/* line 46, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 58, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #50585D; }
+  color: #50585d; }
 
-/* line 49, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 64, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 p, ul, ol, dl {
   margin: 1.6em 0; }
 
-/* line 52, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 70, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 ol ol, ul ul, ul ol, ol ul {
   margin: 0.4em 0; }
 
-/* line 55, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 73, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 dl dt {
   float: left;
   width: 180px;
@@ -74,12 +70,12 @@ dl dt {
   font-weight: bold;
   margin-bottom: 1em; }
 
-/* line 66, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 84, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 dl dd {
   margin-left: 200px;
   margin-bottom: 1em; }
 
-/* line 70, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 88, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 hr {
   display: block;
   height: 1px;
@@ -88,7 +84,7 @@ hr {
   margin: 3.2em 0;
   padding: 0; }
 
-/* line 78, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 96, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -96,60 +92,60 @@ blockquote {
   padding: 0 0 0 1.6em;
   border-left: #4a4a4a 0.4em solid; }
 
-/* line 85, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 103, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote p {
   margin: 0.8em 0;
   font-style: italic; }
 
-/* line 89, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 107, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote small {
   display: inline-block;
   margin: 0.8em 0 0.8em 1.5em;
   font-size: 0.9em;
   color: #ccc; }
 
-/* line 95, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 113, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote small:before {
   content: '\2014 \00A0'; }
 
-/* line 98, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 116, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote cite {
   font-weight: bold; }
 
-/* line 101, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 119, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 blockquote cite a {
   font-weight: normal; }
 
-/* line 104, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 122, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 mark {
   background-color: #ffc336; }
 
-/* line 107, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 126, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 code, tt {
   padding: 1px 3px;
   font-family: Inconsolata, monospace, sans-serif;
   font-size: 0.85em;
   white-space: pre-wrap;
-  border: 1px solid #E3EDF3;
-  background: #F7FAFB;
+  border: 1px solid #e3edf3;
+  background: #f7fafb;
   border-radius: 2px; }
 
-/* line 116, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 135, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 pre {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 1.6em 0;
-  border: 1px solid #E3EDF3;
+  border: 1px solid #e3edf3;
   width: 100%;
   padding: 10px;
   font-family: Inconsolata, monospace, sans-serif;
   font-size: 0.9em;
   white-space: pre;
   overflow: auto;
-  background: #F7FAFB;
+  background: #f7fafb;
   border-radius: 3px; }
 
-/* line 130, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 150, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 pre code, tt {
   font-size: inherit;
   white-space: -moz-pre-wrap;
@@ -158,7 +154,7 @@ pre code, tt {
   border: none;
   padding: 0; }
 
-/* line 138, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 158, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 kbd {
   display: inline-block;
   margin-bottom: 0.4em;
@@ -172,7 +168,7 @@ kbd {
   border-radius: 4px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset; }
 
-/* line 151, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 171, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -181,7 +177,7 @@ table {
   max-width: 100%;
   background-color: transparent; }
 
-/* line 159, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 180, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table th, table td {
   padding: 8px;
   line-height: 20px;
@@ -189,53 +185,66 @@ table th, table td {
   vertical-align: top;
   border-top: 1px solid #efefef; }
 
-/* line 166, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 187, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table th {
   color: #000; }
 
-/* line 169, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 195, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table caption + thead tr:first-child th, table caption + thead tr:first-child td, table colgroup + thead tr:first-child th, table colgroup + thead tr:first-child td, table thead:first-child tr:first-child th, table thead:first-child tr:first-child td {
   border-top: 0; }
 
-/* line 172, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 198, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table tbody + tbody {
   border-top: 2px solid #efefef; }
 
-/* line 175, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 201, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table table table {
   background-color: #fff; }
 
-/* line 178, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 205, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
   background-color: #f6f6f6; }
 
-/* line 181, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 209, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 table.plain tbody > tr:nth-child(odd) > td, table.plain tbody > tr:nth-child(odd) > th {
   background: transparent; }
 
-/* line 184, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 213, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 iframe, .fluid-width-video-wrapper {
   display: block;
   margin: 1.6em 0; }
 
 /* When a video is inside the fitvids wrapper, drop the
 margin on the iframe, cause it breaks stuff. */
-/* line 191, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 219, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 .fluid-width-video-wrapper iframe {
   margin: 0; }
 
-/* line 195, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+/* line 222, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
 .floatingHeader {
+  overflow: hidden;
   position: fixed;
   top: 0;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color: white;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #2c3e50;
   visibility: hidden;
-  margin-left: -10% !important;
-  padding-left: 10%;
-  z-index: 50000; }
+  left: 0px;
+  z-index: 50000;
+  text-align: center; }
+  /* line 234, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+  .floatingHeader a {
+    width: 80%; }
+  @media screen and (max-width: 800px) {
+    /* line 238, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+    .floatingHeader a {
+      font-size: 1.5rem;
+      word-break: break-word; }
+    /* line 243, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
+    .floatingHeader {
+      padding-bottom: 3px;
+      padding-top: 0px; } }
 
 @font-face {
   font-family: 'icons';
@@ -243,6 +252,15 @@ margin on the iframe, cause it breaks stuff. */
   src: url('../fonts/icons.eot?#iefix') format('embedded-opentype'), url('../fonts/icons.woff') format('woff'), url('../fonts/icons.ttf') format('truetype'), url('../fonts/icons.svg#icons') format('svg');
   font-weight: normal;
   font-style: normal; }
+
+/* line 9, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_fonts.scss */
+body {
+  height: 100%;
+  max-height: 100%;
+  font-family: 'Noto Serif', serif;
+  font-size: 1.7rem;
+  line-height: 1.6em;
+  color: #50585d; }
 
 /* Apply these base styles to all icons */
 /* line 3, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_icons.scss */
@@ -301,11 +319,14 @@ margin on the iframe, cause it breaks stuff. */
   display: table-cell;
   vertical-align: middle; }
 
-/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
 .post-container.odd {
   padding-top: 40px; }
+  @media screen and (max-width: 800px) {
+    .post-container.odd {
+      padding-top: 20px; } }
 
-/* line 15, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+/* line 18, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
 .post {
   position: relative;
   width: 80%;
@@ -317,107 +338,133 @@ margin on the iframe, cause it breaks stuff. */
   word-break: break-word;
   hyphens: auto;
   border-radius: 10px; }
-  /* line 26, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 29, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post h1 {
     color: #50585d; }
-  /* line 29, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 32, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-title {
     margin: 0 0 30px; }
-  /* line 32, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 35, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-title a {
     text-decoration: none; }
-  /* line 41, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  @media screen and (max-width: 800px) {
+    .post {
+      width: 90%;
+      float: none; }
+      /* line 41, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+      .post h1 {
+        font-size: 3.5rem; } }
+  /* line 51, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h1, .post .post-content h2, .post .post-content h3, .post .post-content h4, .post .post-content h5, .post .post-content h6 {
     border-left: 5px solid;
     padding-left: 10px;
     color: #50585d; }
-  /* line 46, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 56, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h1 {
-    border-color: #3498db;
+    border-color: #f39c12;
     font-size: 3.5rem; }
-  /* line 50, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 60, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h2 {
-    border-color: #dc8c0c;
+    border-color: #57a3e8;
     line-height: 1.2em;
     font-size: 2.5rem;
     letter-spacing: -1px;
     text-indent: -2px; }
-  /* line 57, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 67, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h3 {
     font-size: 2rem;
     border-color: #16a085; }
-  /* line 61, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 71, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h4 {
     font-size: 1.8rem;
     border-color: #d35400; }
-  /* line 65, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 75, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h5 {
     font-size: 1.2rem;
     border-color: #f1c40f; }
-  /* line 69, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 79, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content h6 {
     font-size: 1rem;
-    border-color: #3498db; }
-  /* line 73, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    border-color: #8e44ad; }
+  /* line 83, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-content img {
     display: block;
     max-width: 100%;
     margin: 0 auto;
     height: auto; }
-  /* line 80, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  @media screen and (max-width: 800px) {
+    /* line 90, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h1 {
+      font-size: 3rem; }
+    /* line 93, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h2 {
+      font-size: 2rem; }
+    /* line 96, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h3 {
+      font-size: 1.7rem; }
+    /* line 99, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h4 {
+      font-size: 1.4rem; }
+    /* line 102, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h5 {
+      font-size: 1.2rem; }
+    /* line 105, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
+    .post .post-content h6 {
+      font-size: 1rem; } }
+  /* line 110, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-excerpt p {
     margin: 1.6rem 0 0;
     font-size: 0.9em;
     line-height: 1.6em; }
-  /* line 85, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 115, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-meta {
     display: inline-block;
     margin: 0 0 5px;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     color: #9eabb3; }
-    /* line 91, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 121, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-meta a {
       color: #9eabb3;
       text-decoration: none; }
-    /* line 95, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 125, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-meta a:hover {
       text-decoration: underline; }
-  /* line 99, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+  /* line 129, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post .post-footer {
     position: relative;
     margin: 4rem 0 0;
     padding: 4rem 0 0;
     border-top: #ebf2f6 1px solid; }
-    /* line 104, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 134, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer h4 {
       font-size: 1.8rem;
       margin: 0; }
-    /* line 108, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 138, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer p {
       margin: 1rem 0;
       font-size: 1.4rem;
       line-height: 1.6em; }
-    /* line 113, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 143, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer .author {
       margin-right: 180px; }
-    /* line 116, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 146, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer .share {
       position: absolute;
       top: 4rem;
       right: 0;
       width: 140px; }
-    /* line 122, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 152, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer .share a {
       font-size: 1.8rem;
       display: inline-block;
       margin: 1.4rem 1.6rem 1.6rem 0;
       color: #bbc7cc;
       text-decoration: none; }
-    /* line 129, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+    /* line 159, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
     .post .post-footer .share a:hover {
-      color: #50585d; }
-  /* line 134, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/post.scss */
+      color: #57a3e8; }
+  /* line 164, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_post.scss */
   .post:after {
     display: block;
     content: "";
@@ -434,12 +481,12 @@ margin on the iframe, cause it breaks stuff. */
     border-radius: 100%;
     box-shadow: #f39c12 0 0 0 5px; }
 
-/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .site-footer {
   position: relative;
-  margin: 8rem 0 0 0;
+  margin: 8rem 0 0;
   padding: 4rem 0;
-  border-top: #EBF2F6 1px solid;
+  border-top: #ebf2f6 1px solid;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.3rem;
   line-height: 1.7em;
@@ -447,31 +494,31 @@ margin on the iframe, cause it breaks stuff. */
   text-align: center;
   background: #303538; }
 
-/* line 14, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 13, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .site-footer a {
-  color: #BBC7CC;
+  color: #bbc7cc;
   text-decoration: underline; }
 
-/* line 18, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 17, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .site-footer a:hover {
-  color: #50585D; }
+  color: #50585d; }
 
-/* line 21, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 20, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .poweredby .icon-ghost {
   font-weight: 700;
   text-decoration: none; }
 
-/* line 25, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 24, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .poweredby .icon-ghost:hover {
   text-decoration: none; }
 
-/* line 28, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 27, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .poweredby .icon-ghost:before {
   font-size: 1rem;
   margin-right: 0.2em; }
 
 /* The subscribe icon on the footer */
-/* line 34, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 33, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .subscribe {
   width: 28px;
   height: 28px;
@@ -479,7 +526,7 @@ margin on the iframe, cause it breaks stuff. */
   top: -14px;
   left: 50%;
   margin-left: -15px;
-  border: #EBF2F6 1px solid;
+  border: #ebf2f6 1px solid;
   text-align: center;
   line-height: 2.4rem;
   border-radius: 50px;
@@ -487,9 +534,9 @@ margin on the iframe, cause it breaks stuff. */
   transition: box-shadow 0.5s; }
 
 /* The RSS icon, inserted via icon font */
-/* line 50, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 49, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .subscribe:before {
-  color: #D2DEE3;
+  color: #d2dee3;
   font-size: 10px;
   position: absolute;
   top: 9px;
@@ -498,21 +545,21 @@ margin on the iframe, cause it breaks stuff. */
   transition: color 0.5s ease; }
 
 /* Add a box shadow to on hover */
-/* line 61, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 60, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .subscribe:hover {
   box-shadow: rgba(0, 0, 0, 0.05) 0 0 0 3px;
   transition: box-shadow 0.25s; }
 
-/* line 65, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 64, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .subscribe:hover:before {
-  color: #50585D; }
+  color: #50585d; }
 
 /* CSS tooltip saying "Subscribe!" - initially hidden */
-/* line 70, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 69, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .tooltip {
   opacity: 0;
   display: inline-block;
-  padding: 4px 8px 5px 8px;
+  padding: 4px 8px 5px;
   position: absolute;
   top: -23px;
   left: -21px;
@@ -520,18 +567,18 @@ margin on the iframe, cause it breaks stuff. */
   font-size: 1.1rem;
   line-height: 1em;
   text-align: center;
-  background: #50585D;
+  background: #50585d;
   border-radius: 20px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease, top 0.3s ease; }
 
 /* The little chiclet arrow under the tooltip, pointing down */
-/* line 88, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 87, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .tooltip:after {
   content: "";
   border-width: 5px 5px 0 5px;
   border-style: solid;
-  border-color: #50585D transparent;
+  border-color: #50585d transparent;
   display: block;
   position: absolute;
   bottom: -4px;
@@ -541,12 +588,12 @@ margin on the iframe, cause it breaks stuff. */
   width: 0; }
 
 /* On hover, show the tooltip! */
-/* line 103, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/footer.scss */
+/* line 102, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_footer.scss */
 .subscribe:hover .tooltip {
   opacity: 1;
   top: -33px; }
 
-/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/header.scss */
+/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
 .site-head {
   position: relative;
   display: table;
@@ -560,10 +607,13 @@ margin on the iframe, cause it breaks stuff. */
   background-size: cover;
   /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
   /* The details of your blog. Defined in ghost/settings/ */ }
-  /* line 12, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/header.scss */
+  @media screen and (max-width: 800px) {
+    .site-head {
+      margin-bottom: 3rem; } }
+  /* line 15, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
   .site-head .blog-logo {
     text-decoration: none; }
-  /* line 16, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/header.scss */
+  /* line 19, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
   .site-head .blog-logo img {
     display: block;
     max-height: 150px;
@@ -571,7 +621,7 @@ margin on the iframe, cause it breaks stuff. */
     margin: 0 auto;
     line-height: 0;
     border-radius: 360px; }
-  /* line 25, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/header.scss */
+  /* line 28, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
   .site-head .blog-title {
     margin: 10px 0;
     font-size: 5rem;
@@ -579,7 +629,10 @@ margin on the iframe, cause it breaks stuff. */
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.1); }
-  /* line 33, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/header.scss */
+    @media screen and (max-width: 800px) {
+      .site-head .blog-title {
+        font-size: 4rem; } }
+  /* line 39, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
   .site-head .blog-description {
     margin: 0;
     font-size: 1.8rem;
@@ -590,14 +643,14 @@ margin on the iframe, cause it breaks stuff. */
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); }
 
 /* Hexo: Youtube, other video container */
-/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+/* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
 .video-container {
   position: relative;
   padding-top: 56.25%;
   height: 0;
   overflow: hidden; }
 
-/* line 10, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+/* line 10, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
 .video-container iframe, .video-container object, .video-container embed {
   position: absolute;
   top: 0;
@@ -606,30 +659,46 @@ margin on the iframe, cause it breaks stuff. */
   height: 100%;
   margin-top: 0; }
 
-/* line 18, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+/* line 18, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
 pre {
   margin-top: 10px;
+  box-sizing: border-box;
   margin-bottom: 10px;
-  border: 0;
   background: #f8f8f8;
   width: 1000px;
-  margin-left: -100px;
-  border: 1px solid black;
-  padding-left: 50px; }
-  /* line 27, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+  margin-left: -10%;
+  margin-right: -10%;
+  border: 1px solid #303538;
+  padding-left: 50px;
+  font-size: 1.5rem; }
+  /* line 30, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
   pre code {
+    line-height: 1.3;
     padding: 10px; }
+  @media screen and (max-width: 800px) {
+    pre {
+      border-left: 0;
+      border-right: 0;
+      margin-left: -5%;
+      margin-right: -5%;
+      overflow-x: auto;
+      width: auto; }
+      /* line 43, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
+      pre code {
+        margin-left: -10%;
+        overflow-x: scroll;
+        padding: 0;
+        width: 250%; } }
 
-/* Github */
-/* line 33, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+/* line 52, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
 .gist table {
-  margin: 0;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  margin: 0; }
 
-/* line 37, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/embeds.scss */
+/* line 56, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
 .gist .line-number {
-  min-width: 25px;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  min-width: 25px; }
 
 /* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_pagination.scss */
 .pagination {
@@ -674,12 +743,12 @@ pre {
 .older-posts:hover, .newer-posts:hover {
   border-color: #9EABB3; }
 
-/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/comments.scss */
+/* line 1, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_comments.scss */
 .comments-area {
   width: 80%;
   max-width: 700px;
   margin: 4rem auto; }
 
-/* line 6, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/comments.scss */
+/* line 6, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_comments.scss */
 #comment h1 a {
   text-decoration: none; }
