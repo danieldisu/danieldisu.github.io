@@ -220,32 +220,6 @@ margin on the iframe, cause it breaks stuff. */
 .fluid-width-video-wrapper iframe {
   margin: 0; }
 
-/* line 222, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
-.floatingHeader {
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background-color: white;
-  border-bottom: 1px solid #2c3e50;
-  visibility: hidden;
-  left: 0px;
-  z-index: 50000;
-  text-align: center; }
-  /* line 234, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
-  .floatingHeader a {
-    width: 80%; }
-  @media screen and (max-width: 800px) {
-    /* line 238, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
-    .floatingHeader a {
-      font-size: 1.5rem;
-      word-break: break-word; }
-    /* line 243, /Users/ddiaz/pprojects/blog/themes/casper/source/css/partials/_general.scss */
-    .floatingHeader {
-      padding-bottom: 3px;
-      padding-top: 0px; } }
-
 @font-face {
   font-family: 'icons';
   src: url('../fonts/icons.eot');
@@ -641,6 +615,33 @@ body {
     font-family: 'Noto Serif', serif;
     letter-spacing: 0;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); }
+
+/* line 50, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
+.floatingHeader {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  background-color: white;
+  border-bottom: 1px solid #2c3e50;
+  visibility: hidden;
+  left: 0px;
+  z-index: 50000;
+  text-align: center; }
+  /* line 62, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
+  .floatingHeader a {
+    width: 80%;
+    font-size: 2.5rem; }
+  @media screen and (max-width: 800px) {
+    /* line 67, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
+    .floatingHeader a {
+      font-size: 1.5rem;
+      word-break: break-word; }
+    /* line 72, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_header.scss */
+    .floatingHeader {
+      padding-bottom: 3px;
+      padding-top: 0px; } }
 
 /* Hexo: Youtube, other video container */
 /* line 2, /Users/ddiaz/pprojects/blog/themes/casper/source/css/classes/_embeds.scss */
