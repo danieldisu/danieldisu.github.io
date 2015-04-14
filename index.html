@@ -47,6 +47,65 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2015-04-14T20:03:47.000Z" itemprop="datePublished">
+          2015-04-14
+      </time>
+      <author> by danieldisu</author>
+    
+</span>
+
+      <h1 class="post-title"><a href="/2015/04/14/typescript-amd-handlebars/">Using a Handlebars template in your Typescript app</a></h1>
+    </header>
+    <section class="post-content">
+      <p>
+        <p>Lately I’ve been porting our Backbone Marionette written in Javascript app to Typescript, the legacy app was written using AMD modules, and we’ve decided to keep using them. To make the transition easier we are porting it bit by bit, the rewritten classes are using the external module syntax in Typescript:</p>
+<pre><code><span class="reserved">import</span> <span class="built_in">module</span> = <span class="built_in">require</span>(<span class="string">'modulePath'</span>);
+
+<span class="reserved">export</span> = ExportedClass;
+</code></pre><p>Typescript compiles it to AMD:</p>
+<pre><code>define([<span class="string">'modulePath'</span>, <span class="keyword">function</span>(module){
+    <span class="keyword">...</span>
+
+    <span class="keyword">return</span> ExportedClass;
+}]);
+</code></pre><p>This way we can rewrite only some of the classes without affecting to other parts of the system, one problem I’ve encountered was how to import Handlebar templates using the <code>hbs!</code> module of AMD. The original code would be something like this:</p>
+<pre><code>define(['!hbs/<span class="keyword">template</span>', function(<span class="type">Template</span>){
+
+    <span class="type">Marionette</span>.<span class="type">ItemView</span>({
+        <span class="keyword">template</span>: <span class="type">Template</span>
+    })
+
+    ...
+}]);
+</code></pre><p>If you try to import a template from Typescript you will get an error, searching on the internet I’ve found a hidden feature in Typescript that let’s you import some amd module into your code without checkin if it exist.</p>
+<pre><code>///&lt;amd-dependency path=<span class="string">"hbs!template"</span> /&gt;
+
+<span class="keyword">import</span> module = require('someModule');
+
+<span class="keyword">var</span> <span class="type">Template</span> = require('hbs!<span class="keyword">template</span>');
+</code></pre><p>This code do several things:</p>
+<ul>
+<li>First, it will add the module path as a dependency in the compiled AMD code, but it will not assign it to any variable.</li>
+<li>Then it will import someModule as normal, it will be passed in the module callback like any other module.</li>
+<li>Lastly it will ask for the Template <strong>inside</strong> the function of the module, pay attention that you assign it to a <code>var</code> and it’s not using the <code>ìmport</code> keyword.</li>
+</ul>
+<p>The compiled code would look something like this:</p>
+<pre><code>define(['require', 'exports', 'someModule', 'hbs!<span class="keyword">template</span>'], function (require, exports, module){
+    <span class="keyword">var</span> <span class="type">Template</span> = require('hbs!<span class="keyword">template</span>');
+    ...
+}
+</code></pre><p>If you don’t put the amd-dependency comment at the top of the file, you would get an error mentioning that the module has not been imported yet into context, this way you can skip over the restriction.</p>
+
+      </p>
+
+    </section>
+  </article>
+  </div>
+  
+    <div class="post-container odd">
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2015-03-08T12:00:21.000Z" itemprop="datePublished">
           2015-03-08
       </time>
@@ -209,7 +268,7 @@
   </article>
   </div>
   
-    <div class="post-container odd">
+    <div class="post-container ">
   <article class="post">
     <header class="post-header">
       <span class="post-meta">

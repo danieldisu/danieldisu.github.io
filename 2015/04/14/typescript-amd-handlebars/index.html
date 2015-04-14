@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Using a Handlebars template in your Typescript app | danieldisu.com</title>
+  <meta name="description" content="tech related thoughts" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <script type="text/javascript" src="/js/highlight.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+  <meta name="generator" content="danieldisu.com">
+
+  
+  
+  
+
+  
+</head>
+
+
+
+
+
+
+
+  <body class="post-template">
+    <header class="site-head">
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/yo.jpg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">danieldisu.com</h1>
+            <h2 class="blog-description">tech related thoughts</h2>
+        </div>
+    </div>
+</header>
+
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2015-04-14T20:03:47.000Z" itemprop="datePublished">
+          2015-04-14
+      </time>
+      <author> by danieldisu</author>
+    
+</span>
+
+    <h1 class="post-title">Using a Handlebars template in your Typescript app</h1>
+    <section class="post-content">
+      <p>Lately I’ve been porting our Backbone Marionette written in Javascript app to Typescript, the legacy app was written using AMD modules, and we’ve decided to keep using them. To make the transition easier we are porting it bit by bit, the rewritten classes are using the external module syntax in Typescript:</p>
+<pre><code><span class="reserved">import</span> <span class="built_in">module</span> = <span class="built_in">require</span>(<span class="string">'modulePath'</span>);
+
+<span class="reserved">export</span> = ExportedClass;
+</code></pre><p>Typescript compiles it to AMD:</p>
+<pre><code>define([<span class="string">'modulePath'</span>, <span class="keyword">function</span>(module){
+    <span class="keyword">...</span>
+
+    <span class="keyword">return</span> ExportedClass;
+}]);
+</code></pre><p>This way we can rewrite only some of the classes without affecting to other parts of the system, one problem I’ve encountered was how to import Handlebar templates using the <code>hbs!</code> module of AMD. The original code would be something like this:</p>
+<pre><code>define(['!hbs/<span class="keyword">template</span>', function(<span class="type">Template</span>){
+
+    <span class="type">Marionette</span>.<span class="type">ItemView</span>({
+        <span class="keyword">template</span>: <span class="type">Template</span>
+    })
+
+    ...
+}]);
+</code></pre><p>If you try to import a template from Typescript you will get an error, searching on the internet I’ve found a hidden feature in Typescript that let’s you import some amd module into your code without checkin if it exist.</p>
+<pre><code>///&lt;amd-dependency path=<span class="string">"hbs!template"</span> /&gt;
+
+<span class="keyword">import</span> module = require('someModule');
+
+<span class="keyword">var</span> <span class="type">Template</span> = require('hbs!<span class="keyword">template</span>');
+</code></pre><p>This code do several things:</p>
+<ul>
+<li>First, it will add the module path as a dependency in the compiled AMD code, but it will not assign it to any variable.</li>
+<li>Then it will import someModule as normal, it will be passed in the module callback like any other module.</li>
+<li>Lastly it will ask for the Template <strong>inside</strong> the function of the module, pay attention that you assign it to a <code>var</code> and it’s not using the <code>ìmport</code> keyword.</li>
+</ul>
+<p>The compiled code would look something like this:</p>
+<pre><code>define(['require', 'exports', 'someModule', 'hbs!<span class="keyword">template</span>'], function (require, exports, module){
+    <span class="keyword">var</span> <span class="type">Template</span> = require('hbs!<span class="keyword">template</span>');
+    ...
+}
+</code></pre><p>If you don’t put the amd-dependency comment at the top of the file, you would get an error mentioning that the module has not been imported yet into context, this way you can skip over the restriction.</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>Daniel Diaz</h4>
+    <p>A designer, developer and entrepreneur. Spends his time travelling the world with a bag of kites. Likes journalism and publishing platforms.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2015/04/14/typescript-amd-handlebars/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/04/14/typescript-amd-handlebars/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/14/typescript-amd-handlebars/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2015/03/08/Android-Priority-Jobqueue-Otto/">
+        Interesting Android Libraries: Android Priority Jobqueue & Otto →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">danieldisu.com</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script>
+$(document).ready(function() {
+	$('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+	});
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54270283-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript">
+function UpdateTableHeaders() {
+   $(".post-container").each(function() {
+
+       var el             = $(this),
+           offset         = el.offset(),
+           scrollTop      = $(window).scrollTop(),
+           floatingHeader = $(".floatingHeader", this)
+
+       if ((scrollTop > offset.top) && (scrollTop < offset.top + (el.height() - 100))) {
+           floatingHeader.css({
+            "visibility": "visible",
+						"width": window.innerWidth
+           });
+       } else {
+           floatingHeader.css({
+            "visibility": "hidden",
+						"width": window.innerWidth
+           });
+       };
+   });
+}
+
+// DOM Ready
+$(function() {
+
+   var clonedHeaderRow;
+
+   $(".post-container").each(function() {
+       clonedHeaderRow = $(".post-title", this);
+       clonedHeaderRow
+         .before(clonedHeaderRow.clone())
+         .css("width", clonedHeaderRow.width())
+         .addClass("floatingHeader");
+
+   });
+
+   $(window)
+    .scroll(UpdateTableHeaders)
+    .trigger("scroll");
+
+});
+</script>
+
+
+  </body>
+
+
+
+</html>
